@@ -19,5 +19,25 @@
     "eslint-config-next": "12.1.5",
     "postcss": "^8.4.12",
     "tailwindcss": "^3.0.24"
+  },
+  "prettier": {
+    "semi": false,
+    "overrides": [
+      {
+        "files": "*.test.js",
+        "options": {
+          "semi": true
+        }
+      },
+      {
+        "files": [
+          "*.html",
+          "legacy/**/*.js"
+        ],
+        "options": {
+          "tabWidth": 4
+        }
+      }
+    ]
   }
 }
