@@ -14,6 +14,5 @@ const assets = {
   ethLogo,
   uberLogo,
 }
-console.log(assets)
 
 export default assets
