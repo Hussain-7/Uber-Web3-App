@@ -5,7 +5,6 @@ const getLocationCoordinates = async (req, res) => {
   try {
     const response = await fetch(mapboxUrl)
     const data = await response.json()
-
     // ** The data is return as an array for most related places so we get the first place and take its coordinates
     res.status(200).send({ message: "success", data: data.features[0].center })
   } catch (error) {
