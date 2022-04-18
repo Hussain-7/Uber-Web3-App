@@ -1,4 +1,3 @@
-import React from "react"
 import RideSelector from "./RideSelector"
 
 const style = {
