@@ -14,43 +14,7 @@ const style = {
   priceContainer: `flex items-center`,
   price: `mr-[-0.8rem]`,
 }
-const {
-  //   uberBlack,
-  //   uberBlackSuv,
-  //   uberSelect,
-  //   uberX,
-  //   uberXL,
-  ethLogo,
-  uberLogo,
-} = assets
-
-// const carList = [
-//   {
-//     service: "UberX",
-//     iconUrl: uberX,
-//     priceMultiplier: 1,
-//   },
-//   {
-//     service: "uberBlack",
-//     iconUrl: uberBlack,
-//     priceMultiplier: 1.5,
-//   },
-//   {
-//     service: "uberBlackSuv",
-//     iconUrl: uberBlackSuv,
-//     priceMultiplier: 1.5,
-//   },
-//   {
-//     service: "uberSelect",
-//     iconUrl: uberSelect,
-//     priceMultiplier: 1.5,
-//   },
-//   {
-//     service: "uberXL",
-//     iconUrl: uberXL,
-//     priceMultiplier: 1.5,
-//   },
-// ]
+const { ethLogo, uberLogo } = assets
 
 const RideSelector = () => {
   const basePrice = 20
