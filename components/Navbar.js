@@ -5,7 +5,7 @@ import { BsPersonFill } from "react-icons/bs"
 const style = {
   wrapper: `h-16 w-full bg-black text-white flex md:justify-around items-center`,
   leftMenu: `flex gap-3`,
-  logo: `text-3xl text-white flex cursor-pointer mr-16 pl-3`,
+  logo: `text-3xl text-white flex mr-16 pl-3 cursor-pointer `,
   menuItem: `text-md text-white font-md flex items-center mx-4 cursor-pointer`,
   rightMenu: `flex gap-3 items-center`,
   userImageContainer: `mr-2 items-center justify-center`,
@@ -42,7 +42,7 @@ const Navbar = () => {
           </div>
         ) : (
           <div className={style.loginButton}>
-            <BsPersonFill></BsPersonFill>
+            <BsPersonFill />
             <span className={style.loginText}>Log In</span>
           </div>
         )}
