@@ -1,11 +1,10 @@
 import React from "react"
 import assets from "../assets/index"
 import Image from "next/image"
-
 const style = {
   wrapper: `h-full flex flex-col overflow-hidden`,
   title: `text-gray-500 text-center text-xs py-2 border-b`,
-  carList: `flex flex-col flex-1 overflow-scroll overflow-x-hidden`,
+  carList: `flex flex-col flex-1 overflow-scroll overflow-x-hidden customScrollbar`,
   car: `flex p-3 m-2 items-center border-2 border-white`,
   selectedCar: `border-2 border-black flex p-3 m-2 items-center`,
   carImage: `h-14`,
