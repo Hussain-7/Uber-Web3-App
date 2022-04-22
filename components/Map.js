@@ -19,9 +19,11 @@ const Map = () => {
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: "mapbox://styles/drakosi/ckvcwq3rwdw4314o3i2ho8tph",
-      center: [33.64, 72.99],
-      zoom: 3,
+      center: [74.329376, 31.58],
+      zoom: 4,
     })
+  }, [])
+  useEffect(() => {
     if (pickupCoordinates) {
       addToMap(map, pickupCoordinates)
     }
@@ -29,14 +31,20 @@ const Map = () => {
       addToMap(map, dropoffCoordinates)
     }
     if (pickupCoordinates && dropoffCoordinates) {
-      map.fitBounds([dropoffCoordinates, pickupCoordinates], {
-        padding: 60,
+      map.current.fitBounds([dropoffCoordinates, pickupCoordinates], {
+        padding: 400,
       })
     }
-  }, [])
+  }, [pickupCoordinates, dropoffCoordinates])
 
   const addToMap = (map, coordinates) => {
-    const marker1 = new mapboxgl.Marker().setLngLat(coordinates).addToMap(map)
+    try {
+      const marker1 = new mapboxgl.Marker()
+        .setLngLat(coordinates)
+        .addTo(map.current)
+    } catch (e) {
+      console.log("error in addToMap: ")
+    }
   }
   return <div ref={mapContainer} className={style.wrapper} />
 }
