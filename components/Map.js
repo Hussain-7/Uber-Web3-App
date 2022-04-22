@@ -19,7 +19,7 @@ const Map = () => {
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: "mapbox://styles/drakosi/ckvcwq3rwdw4314o3i2ho8tph",
-      center: [74.329376, 31.58],
+      center: [74.329376, 31.58], //Lahore long lang
       zoom: 4,
     })
   }, [])

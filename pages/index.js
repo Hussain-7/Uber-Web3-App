@@ -8,8 +8,8 @@ const style = {
   wrapper: `h-screen w-screen flex flex-col`,
   main: `h-full w-screen flex-1  z-10`,
   mapContainer: `flex-1 w-full h-full`,
-  rideRequestContainer: `h-full w-[350px] ml-[1rem] py-[1rem] absolute top-0 left-0 flex flex-col justify-end z-20`,
-  rideRequest: `h-full max-h-[600px] bg-white rounded-lg flex flex-col overflow-hidden`,
+  rideRequestContainer: `h-full w-[300px] ml-[1rem] py-[1rem] absolute top-0 left-0 flex flex-col justify-end z-20`,
+  rideRequest: `h-full max-h-[450px] bg-white rounded-lg flex flex-col overflow-hidden`,
 }
 
 export default function Home() {
