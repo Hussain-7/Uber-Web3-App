@@ -52,7 +52,6 @@ export const UberProvider = ({ children }) => {
     })()
   }, [pickupCoordinates, dropoffCoordinates])
 
-  
   const checkIfWalletIsConnected = async () => {
     if (!window.ethereum) return
     try {
