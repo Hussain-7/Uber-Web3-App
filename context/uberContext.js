@@ -45,9 +45,14 @@ export const UberProvider = ({ children }) => {
   const [dropoffCoordinates, setDropoffCoordinates] = useState()
 
   useEffect(() => {
-    ;(async () => {
-      await Promise.all([])
-    })()
+    if (pickup && dropoff) {
+      ;(async () => {
+        await Promise.all([
+          createLocationCoordinatePromise(pickup, "pickup"),
+          createLocationCoordinatePromise(dropoff, "dropoff"),
+        ])
+      })()
+    }
   }, [])
   return <UberContext.Provider value={{}}>{children}</UberContext.Provider>
 }
