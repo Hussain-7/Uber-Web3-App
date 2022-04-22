@@ -12,7 +12,7 @@ export const UberProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState([])
   const [selectedRide, setSelectedRide] = useState([])
   const [price, setPrice] = useState()
-  const [basePrice, setBasePrice] = useState()
+  const [basePrice, setBasePrice] = useState(20)
 
   let metamask
 

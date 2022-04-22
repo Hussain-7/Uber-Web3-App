@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import assets from "../assets/index"
 import Image from "next/image"
+import { UberContext } from "../context/uberContext"
 const style = {
   wrapper: `h-full flex flex-col overflow-hidden`,
   title: `text-gray-500 text-center text-xs py-2 border-b`,
@@ -17,14 +18,17 @@ const style = {
 const { ethLogo, uberLogo } = assets
 
 const RideSelector = () => {
-  const basePrice = 20
   const [carList, setCarList] = useState([])
+  const { selectedRide, setSelectedRide, setPrice, basePrice } =
+    useContext(UberContext)
   useEffect(() => {
     ;(async () => {
       try {
         const response = await fetch("/api/db/getRideTypes")
         const data = await response.json()
         setCarList(data.data)
+        console.log("ride types:", data.data[0])
+        setSelectedRide(data.data[0])
       } catch (error) {
         console.error(error)
       }
@@ -35,7 +39,23 @@ const RideSelector = () => {
       <div className={style.title}>Choose a ride, or swipe up for more</div>
       <div className={style.carList}>
         {carList.map((car, i) => (
-          <div key={i} className={style.car}>
+          <div
+            key={i}
+            className={`${
+              selectedRide?.service === car.service
+                ? style.selectedCar
+                : style.car
+            }`}
+            onClick={() => {
+              setSelectedRide(car)
+              console.log(
+                "car",
+                ((basePrice / 10 ** 5) * car.priceMultiplier).toFixed(5)
+              )
+              setPrice(((basePrice / 10 ** 5) * car.priceMultiplier).toFixed(5))
+            }}
+          >
+            {" "}
             <Image
               alt={"carIcon"}
               src={car.iconUrl}
