@@ -1,4 +1,5 @@
-import React, { useState } from "react"
+import React, { useContext, useState } from "react"
+import { UberContext } from "../context/uberContext"
 const style = {
   wrapper: `pt-2`,
   searchHeader: `w-full font-bold text-left flex items-center text-xl p-4 overflow-hidden`,
@@ -11,8 +12,7 @@ const style = {
 }
 const LocationSelector = () => {
   const [inFocus, setInFocus] = useState("from")
-  const [pickup, setPickup] = useState("")
-  const [dropoff, setDropoff] = useState("")
+  const { pickup, setPickup, dropoff, setDropoff } = useContext(UberContext)
   return (
     <div className={style.wrapper}>
       <div className={style.searchHeader}>

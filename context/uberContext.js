@@ -1,5 +1,4 @@
-import { createContext, useState, useEffect } from "react"
-import { faker } from "@faker-js/faker"
+import { createContext, useState, useEffect, useContext } from "react"
 
 export const UberContext = createContext()
 
@@ -53,6 +52,21 @@ export const UberProvider = ({ children }) => {
         ])
       })()
     }
-  }, [])
-  return <UberContext.Provider value={{}}>{children}</UberContext.Provider>
+  }, [pickup, dropoff])
+  return (
+    <UberContext.Provider
+      value={{
+        pickup,
+        setPickup,
+        dropoff,
+        setDropoff,
+        pickupCoordinates,
+        dropoffCoordinates,
+        setPickupCoordinates,
+        setDropoffCoordinates,
+      }}
+    >
+      {children}
+    </UberContext.Provider>
+  )
 }
