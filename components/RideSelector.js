@@ -34,6 +34,13 @@ const RideSelector = () => {
       }
     })()
   }, [])
+  useEffect(() => {
+    if (basePrice && selectedRide) {
+      setPrice(
+        ((basePrice / 10 ** 5) * selectedRide.priceMultiplier).toFixed(5)
+      )
+    }
+  }, [basePrice, selectedRide])
   return (
     <div className={style.wrapper}>
       <div className={style.title}>Choose a ride, or swipe up for more</div>

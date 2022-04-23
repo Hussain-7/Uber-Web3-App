@@ -18,5 +18,5 @@ export const userSchema = {
       type: "image",
       title: "Profile Image",
     },
-  ],
+],
 }
