@@ -15,7 +15,7 @@ const LocationSelector = () => {
   const { pickup, setPickup, dropoff, setDropoff } = useContext(UberContext)
   return (
     <div className={style.wrapper}>
-      <div className={style.searchHeader}>{"Search"}</div>
+      <div className={style.searchHeader}>{"Search Location"}</div>
       <div className={style.inputBoxes}>
         <div
           className={`${style.inputBox} ${

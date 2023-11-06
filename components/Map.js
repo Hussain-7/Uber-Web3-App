@@ -6,8 +6,7 @@ const style = {
   wrapper: `flex-1 h-full w-full`,
 }
 
-mapboxgl.accessToken =
-  "pk.eyJ1IjoiaHVzc2Fpbi03IiwiYSI6ImNsMjNpNGY1azA5NTQzYnFrYzlsa3IxMnUifQ.MqO0NdU0Y7Ln6u6aHza3-Q"
+mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN
 
 const Map = () => {
   const { pickupCoordinates } = useContext(UberContext)
@@ -25,9 +24,6 @@ const Map = () => {
     }
 
     if (pickupCoordinates) {
-      // map.fitBounds([pickupCoordinates, pickupCoordinates], {
-      //   padding: 500,
-      // })
       map.flyTo({
         center: pickupCoordinates,
         zoom: 14,
