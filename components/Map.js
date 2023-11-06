@@ -6,10 +6,11 @@ const style = {
   wrapper: `flex-1 h-full w-full`,
 }
 
-mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN
+mapboxgl.accessToken =
+  "pk.eyJ1IjoiaHVzc2Fpbi03IiwiYSI6ImNsMjNpNGY1azA5NTQzYnFrYzlsa3IxMnUifQ.MqO0NdU0Y7Ln6u6aHza3-Q"
 
 const Map = () => {
-  const { pickupCoordinates, dropoffCoordinates } = useContext(UberContext)
+  const { pickupCoordinates } = useContext(UberContext)
 
   useEffect(() => {
     const map = new mapboxgl.Map({
@@ -18,21 +19,21 @@ const Map = () => {
       center: [74.329376, 31.58], //Lahore long lang
       zoom: 4,
     })
-
+    console.log("pickupCoordinates", pickupCoordinates)
     if (pickupCoordinates) {
       addToMap(map, pickupCoordinates)
     }
 
-    if (dropoffCoordinates) {
-      addToMap(map, dropoffCoordinates)
-    }
-
-    if (pickupCoordinates && dropoffCoordinates) {
-      map.fitBounds([dropoffCoordinates, pickupCoordinates], {
-        padding: 100,
+    if (pickupCoordinates) {
+      // map.fitBounds([pickupCoordinates, pickupCoordinates], {
+      //   padding: 500,
+      // })
+      map.flyTo({
+        center: pickupCoordinates,
+        zoom: 14,
       })
     }
-  }, [pickupCoordinates, dropoffCoordinates])
+  }, [pickupCoordinates])
 
   const addToMap = (map, coordinates) => {
     const marker1 = new mapboxgl.Marker().setLngLat(coordinates).addTo(map)

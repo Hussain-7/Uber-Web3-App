@@ -120,15 +120,14 @@ export const UberProvider = ({ children }) => {
   }
 
   useEffect(() => {
-    if (pickup && dropoff) {
+    if (pickup ) {
       ;(async () => {
         await Promise.all([
           createLocationCoordinatePromise(pickup, "pickup"),
-          createLocationCoordinatePromise(dropoff, "dropoff"),
         ])
       })()
     } else return
-  }, [pickup, dropoff])
+  }, [pickup])
 
   const requestToCreateUserOnSanity = async (address) => {
     if (!window.ethereum) return
